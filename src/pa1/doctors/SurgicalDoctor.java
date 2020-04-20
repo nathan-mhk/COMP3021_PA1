@@ -15,7 +15,9 @@ public class SurgicalDoctor extends Doctor {
         // TODO: 1. initialize the name attribute of this SurgicalDoctor object using super class constructor
         //       2. make the specialty of the doctor to be "Surgical"
         //       3. set the salary of the surgical doctor to 500
-
+        super(name);
+        this.specialty = "Surgical";
+        this.salary = 500;
     }
 
     /**
@@ -27,7 +29,7 @@ public class SurgicalDoctor extends Doctor {
     public int getTrainingCost() {
         // TODO
         //  the training cost of Surgical doctor is 2 * super.getTrainingCost()
-
+        return (2 * super.getTrainingCost());
     }
 
     /**
@@ -44,7 +46,9 @@ public class SurgicalDoctor extends Doctor {
         //  3. Finally, transfer the newly recruited doctor to the same department as
         //  the recruiter (if the recruiter has been affiliated an any of the department).
         //  The basic assumption is a doctor recruit new doctor for his/her own department.
-
+        Doctor dr = new SurgicalDoctor(name);
+        player.addNewlyRecruitedDoctor(dr);
+        dr.transferToDepartment(this.affiliation);
     }
 
     /**
@@ -63,6 +67,11 @@ public class SurgicalDoctor extends Doctor {
         //  2. You may have to use java.util.random to model the probability. Refer to slides 39-40 of the note set
         //      below for the details of using the random object:
         //      https://course.cse.ust.hk/comp3021/notes/2-classes-objects-full.pdf
-
+        if (this.specialty.equals(patient.getCategory())) {
+            return true;
+        } else {
+            Random rnd = new Random();
+            return (rnd.nextInt(100) > 20);
+        }
     }
 }
