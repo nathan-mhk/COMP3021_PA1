@@ -202,7 +202,7 @@ public class Player {
         //     negative value, throws an DeficitException
 
         // Do I need a try block for this one?
-        if (money < 0) {
+        if (this.money < 0) {
             throw new DeficitException(this);
         }
     }
@@ -218,7 +218,7 @@ public class Player {
         //     deficitTimeSpan is larger than 2.
         //  2. return false otherwise
 
-        return (deficitTimeSpan > 2);
+        return (this.deficitTimeSpan > 2);
     }
 
     public boolean allDoctorOccupied() {
