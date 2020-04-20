@@ -3,6 +3,7 @@ package pa1.doctors;
 import pa1.Player;
 import pa1.patients.Patient;
 
+import javax.print.Doc;
 import java.util.Random;
 
 public class MedicalDoctor extends Doctor {
@@ -34,7 +35,9 @@ public class MedicalDoctor extends Doctor {
         //  3. Finally, transfer the newly recruited doctor to the same department as
         //  the recruiter (if the recruiter has been affiliated an any of the department).
         //  The basic assumption is a doctor recruit new doctor for his/her own department.
-
+        Doctor dr = new MedicalDoctor(name);
+        player.addNewlyRecruitedDoctor(dr);
+        dr.transferToDepartment(this.affiliation);
     }
 
     /**
@@ -52,6 +55,11 @@ public class MedicalDoctor extends Doctor {
         //          the patient is cured only when the random number is bigger than 50 (0.5 probability). Refer to slides 39-40 of the note set below for the
         //          details of using the random object:
         //          https://course.cse.ust.hk/comp3021/notes/2-classes-objects-full.pdf
-
+        if (this.specialty.equals(patient.getCategory())) {
+            return true;
+        } else {
+            Random rnd = new Random();
+            return (rnd.nextInt(100) > 50);
+        }
     }
 }

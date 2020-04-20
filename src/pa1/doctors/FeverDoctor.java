@@ -15,6 +15,9 @@ public class FeverDoctor extends Doctor {
         // TODO 1. create a new FeverDoctor object, pass the name to the constructor to initialize the name of this newly hired FeverDoctor
         //      2. Put the specialty of the doctor to be "Fever"
         //      3. put the salary of the doctor to be 100
+        super(name);
+        this.specialty = "Fever";
+        this.salary = 100;
     }
 
     /**
@@ -35,7 +38,9 @@ public class FeverDoctor extends Doctor {
         //    You can check the affiliation of the recruiting doctor using this.affiliation
         //    to add the new doctor object created, you could call the transferToDepartment() method and
         //    pass it with the affiliation object (type Department) of the recruiting doctor
-
+        Doctor dr = new FeverDoctor(name);
+        player.addNewlyRecruitedDoctor(dr);
+        dr.transferToDepartment(this.affiliation);
     }
 
     /**
@@ -54,6 +59,11 @@ public class FeverDoctor extends Doctor {
         //          the patient is cured only when the random number is bigger than 50 (0.5 probability). Refer to slides 39-40 of the note set below for the
         //          details of using the random object:
         //          https://course.cse.ust.hk/comp3021/notes/2-classes-objects-full.pdf
-
+        if (this.specialty.equals(patient.getCategory())) {
+            return true;
+        } else {
+            Random rnd = new Random();
+            return (rnd.nextInt(100) > 50);
+        }
     }
 }

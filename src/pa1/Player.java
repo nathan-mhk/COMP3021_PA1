@@ -201,7 +201,10 @@ public class Player {
         //  1. If the player is in deficit status, i.e., his/her money is
         //     negative value, throws an DeficitException
 
-        // Test commit 4
+        // Do I need a try block for this one?
+        if (this.money < 0) {
+            throw new DeficitException(this);
+        }
     }
 
     /**
@@ -215,6 +218,7 @@ public class Player {
         //     deficitTimeSpan is larger than 2.
         //  2. return false otherwise
 
+        return (this.deficitTimeSpan > 2);
     }
 
     public boolean allDoctorOccupied() {

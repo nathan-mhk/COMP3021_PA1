@@ -13,9 +13,9 @@ public class SurgicalDepartment extends Department {
         //  2. set the name of the department to "Surgical"
         //  3. set the fee to 500, this fee will be used in many fee calculations,
         //     including the calculation of penalty the department needs to pay for each dead patient
-
-
-
+        super();
+        this.name = "Surgical";
+        this.fee = 500;
     }
 
     /**
@@ -38,9 +38,12 @@ public class SurgicalDepartment extends Department {
         //     and add them to the patientList (ArrayList), using the add() method of the ArrayList
         //  4. return an int to indicate the number of patients admitted (this number is the same as the number of
         //    SurgicalPatient objects you put into the patientList (ArrayList)
+        int emptyBedCount = Math.max(0, (this.bedCapacity - this.patientList.size()));
+        int maxPatient = Math.min(emptyBedCount, count);
 
-
-
-
+        for (int i = 0; i < maxPatient; ++i) {
+            this.patientList.add(new SurgicalPatient());
+        }
+        return maxPatient;
     }
 }
