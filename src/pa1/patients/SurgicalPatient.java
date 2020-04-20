@@ -9,6 +9,8 @@ public class SurgicalPatient extends Patient {
         //  1. Calls the superclass' constructor
         //  2. set the category of the patient to "Surgical"
         //  3. set the deathRate to 0.2
-
+        super();
+        this.category = "Surgical";
+        this.deathRate = 0.2;
     }
 }
