@@ -14,8 +14,8 @@ public class FeverDepartment extends Department {
         //  3. set the "fee" variable to 100, this fee will be used in many fee calculations,
         //     including the calculation of penalty the department needs to pay for each dead patient
         super();
-        name = "Fever";
-        fee = 100;
+        this.name = "Fever";
+        this.fee = 100;
 
     }
 
@@ -36,7 +36,7 @@ public class FeverDepartment extends Department {
         //  1. double the waitingPatientCount (fever disease is infectious. so the waitingPatientCount will double at the
         //     beginning of each season.)
         //  2. calls the updateWaitingListAtEndOfTurn() method in the super class to update the waiting list
-        waitingPatientCount *= 2;
+        this.waitingPatientCount *= 2;
         return super.updateWaitingListAtEndOfTurn();
     }
 

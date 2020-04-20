@@ -56,7 +56,7 @@ public abstract class Department {
         // TODO
         //  double the bedCapacity variable
         //
-        bedCapacity *= 2;
+        this.bedCapacity *= 2;
     }
 
     /**
@@ -105,14 +105,14 @@ public abstract class Department {
 
         int count = 0;
         int drNum = 0;
-        while ((patientList.size() != 0) && (drNum < doctorList.size())) {
-            Patient pt = patientList.get(0);
-            Doctor dr = doctorList.get(drNum);
+        while ((this.patientList.size() != 0) && (drNum < this.doctorList.size())) {
+            Patient pt = this.patientList.get(0);
+            Doctor dr = this.doctorList.get(drNum);
 
             if (dr.seePatient(pt)) {
                 // The method will remove the patient from the patientList
                 // and increment curedPatientCount
-                checkoutCuredPatient(pt);
+                this.checkoutCuredPatient(pt);
             }
             if ((++count) == 10) {
                 count = 0;
@@ -133,8 +133,8 @@ public abstract class Department {
         //  2. doctorList is an arrayList, to check whether a doctor object
         //     is already in the doctorList you can use doctorList.contains(), and pass it the doctor object
         //  4. we can use the add() method of the doctorList ArrayList to add the doctor object to the doctorList
-        if (!doctorList.contains(doctor)) {
-            doctorList.add(doctor);
+        if (!this.doctorList.contains(doctor)) {
+            this.doctorList.add(doctor);
         }
     }
 
@@ -149,7 +149,7 @@ public abstract class Department {
         //  2. we can remove the doctor from doctorList only if the list
         //     contains the doctor. You can use doctorList.contains(), and pass it the doctor object to check
         //  3. if the doctor object is in the doctorList we can use the remove() method, refer to PA description for detailed usage
-        doctorList.remove(doctor);
+        this.doctorList.remove(doctor);
     }
 
     /**
@@ -209,7 +209,7 @@ public abstract class Department {
         //  5. The dead patient count of this season is deadPatientCount - oldDeathCount, which should be the return
         //     value of the method
 
-        for (Patient pt: patientList) {
+        for (Patient pt: this.patientList) {
             if (pt.isDeadAtEndOfTurn()) {
                 deadPatients.add(pt);
             } else {
@@ -220,9 +220,9 @@ public abstract class Department {
         for (Patient pt: deadPatients) {
             // The method will remove the patient from the patientList
             // and increment deadPatientCount
-            checkoutDeadPatient(pt);
+            this.checkoutDeadPatient(pt);
         }
-        waitingPatientCount -= acceptPatients(waitingPatientCount);
+        this.waitingPatientCount -= this.acceptPatients(this.waitingPatientCount);
         return deadPatientCount - oldDeathCount; // return the dead count of this season.
     }
 
@@ -231,7 +231,7 @@ public abstract class Department {
      */
     public void clearWaitingList () {
         //  Clear the waiting list by setting the waitingPatientCount to 0
-        waitingPatientCount = 0;
+        this.waitingPatientCount = 0;
     }
 
     /**
@@ -263,7 +263,7 @@ public abstract class Department {
         // TODO
         //  1. return the compensation paid by the department for a dead patient,
         //     which is 5 times of the "fee" variable of the department object.
-        return (5 * fee);
+        return (5 * this.fee);
     }
 
     @Override

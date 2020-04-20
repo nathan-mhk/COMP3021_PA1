@@ -13,8 +13,8 @@ public class MedicalDepartment extends Department {
         //  2. set the name of the department to "Medical"
         //  3. set the fee to 200
         super();
-        name = "Medical";
-        fee = 200;
+        this.name = "Medical";
+        this.fee = 200;
     }
 
     /**
@@ -36,11 +36,11 @@ public class MedicalDepartment extends Department {
         //     and add them to the patientList (ArrayList), using the add() method of the ArrayList
         //  4. return an int to indicate the number of patients admitted (this number is the same as the number of
         //    MedicalPatient objects you put into the patientList (ArrayList)
-        int emptyBedCount = Math.max(0, (bedCapacity - patientList.size()));
+        int emptyBedCount = Math.max(0, (this.bedCapacity - this.patientList.size()));
         int maxPatient = Math.min(emptyBedCount, count);
 
         for (int i = 0; i < maxPatient; ++i) {
-            patientList.add(new MedicalPatient());
+            this.patientList.add(new MedicalPatient());
         }
         return maxPatient;
     }
