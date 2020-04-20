@@ -52,6 +52,11 @@ public abstract class Patient {
         //      You can check this using the timeSpan variable of the patient object
         //   2. if the patient has not stayed longer than the maxAllowedTimeSpan, the patient will die with a
         //      probability equals to the deathRate. Use java.util.Random to model the probability behavior.
-
+        if (this.timeSpan > this.maxAllowedTimeSpan) {
+            return true;
+        } else {
+            Random rnd = new Random();
+            return (rnd.nextInt(100) > ((1 - this.deathRate) * 100));
+        }
     }
 }
