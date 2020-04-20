@@ -72,7 +72,7 @@ public abstract class Doctor {
      */
     public int raiseFund() {
         // TODO By default, doctor can raise 1000 each time. So return this number
-
+        return 1000;
     }
 
     /**
@@ -83,8 +83,8 @@ public abstract class Doctor {
         //  1. First you need to get the training cost for the doctor using getTrainingCost()
         //  2. Then, call player.spendMoney to pay for the training, this will deduct player's money.
         //  3. Finally, increase the specialSkillLevel of the doctor by 1.
-
-
+        player.spendMoney(this.getTrainingCost());
+        ++this.specialSkillLevel;
     }
 
     /**
@@ -103,8 +103,14 @@ public abstract class Doctor {
         //     affiliation for the doctor.
         //  4. Assign the doctor to the new affiliation department by calling doctorAssigned() method and passing the doctor object
         //     as the argument. Remember you can use "this" to refer to the current doctor object.
-
-
+        if (dept != null) {
+            if (this.affiliation != null) {
+                // If affiliation already exist, left it
+                this.affiliation.doctorLeft(this);
+            }
+            this.affiliation = dept;
+            this.affiliation.doctorAssigned(this);
+        }
     }
 
     /**
@@ -119,7 +125,9 @@ public abstract class Doctor {
         //  cost = upgradeCost of the department * department's bed capacity * the upgradeDiscountRate by the doctor.
         //  2. Then, call player.spendMoney to let the player pay for the upgrade.
         //  3. Finally, call upgrade() method on the dept to finish the upgrade.
-
+        double cost = this.affiliation.getUpgradeCost() * this.affiliation.getBedCapacity() * this.getUpgradeDiscountRate();
+        player.spendMoney((int) cost);
+        this.affiliation.upgrade();
     }
 
     /**
