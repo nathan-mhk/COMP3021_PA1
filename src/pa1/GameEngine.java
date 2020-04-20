@@ -28,6 +28,16 @@ public class GameEngine {
         //     and to get the i-th player you can use gameData.getPlayers().get(i)
         //     to know whether the i-th player has gone bankrupted, you can do
         //     gameData.getPlayers().get(i).hasBankrupted()
+        if (this.turns > 20) {
+            return true;
+        } else {
+            for (int i = 0; i < this.gameData.getPlayers().size(); ++i) {
+                if (this.gameData.getPlayers().get(i).hasBankrupted()) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 
     /**
@@ -48,7 +58,30 @@ public class GameEngine {
         //  2. Otherwise, either one or both of the players are
         //     bankrupted. Find the player which is not bankrupted as
         //     the winner (return null if both players get bankrupted)
+        int playerIndex = 0;
 
+        if (this.turns > 20) {
+            int highestCuredCount = 0;
+            for (int i = 0; i < this.gameData.getPlayers().size(); ++i) {
+                int currentCuredCount = this.gameData.getPlayers().get(i).getCuredPatientCount();
+                if (currentCuredCount > highestCuredCount) {
+                    highestCuredCount = currentCuredCount;
+                    playerIndex = i;
+                }
+            }
+            return this.gameData.getPlayers().get(playerIndex);
+        } else {
+            Player firstPlayer = this.gameData.getPlayers().get(0);
+            Player secondPlayer = this.gameData.getPlayers().get(1);
+            boolean firstBR = firstPlayer.hasBankrupted();
+            boolean secondBR = secondPlayer.hasBankrupted();
+
+            if (firstBR && secondBR) {
+                return null;
+            } else {
+                return (firstBR ? secondPlayer : firstPlayer);
+            }
+        }
 
     }
 
@@ -94,7 +127,13 @@ public class GameEngine {
         //  you need to carefully handle the exception.
         //  3. print out the exception message, appending "!!! Warning: "
         //  before the exception message, also add a newline to the end.
-
+        try {
+            player.processAtEndOfTurn();
+        } catch (DeficitException e) {
+            // FIXME
+//            e.printStackTrace();
+            System.out.println("!!! Warning: ");
+        }
     }
 
     private void printPlayerInfo(Player player) {
