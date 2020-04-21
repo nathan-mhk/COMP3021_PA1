@@ -200,8 +200,6 @@ public class Player {
         // TODO
         //  1. If the player is in deficit status, i.e., his/her money is
         //     negative value, throws an DeficitException
-
-        // Do I need a try block for this one?
         if (this.money < 0) {
             throw new DeficitException(this);
         }

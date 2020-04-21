@@ -130,9 +130,7 @@ public class GameEngine {
         try {
             player.processAtEndOfTurn();
         } catch (DeficitException e) {
-            // FIXME
-//            e.printStackTrace();
-            System.out.println("!!! Warning: ");
+            System.out.println("!!! Warning: " + e.getMessage());
         }
     }
 
