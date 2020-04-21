@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae99b915-269c-4327-ad4b-1c0892dfb0a5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/pa1/GameEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pa1/GameEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pa1/departments/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pa1/departments/Department.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +74,10 @@
     </state>
     <state x="427" y="123" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1587209333442" />
     <state x="320" y="127" key="#Project_Structure/0.23.1440.877/-1463.-1057.1920.1057/460.-1057.1920.1057@0.23.1440.877" timestamp="1583290957353" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1587478808762">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587478808762" />
     <state x="740" y="294" key="FileChooserDialogImpl" timestamp="1586467069915">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

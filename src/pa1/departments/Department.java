@@ -103,7 +103,7 @@ public abstract class Department {
         //      curedPatientCount will be accumulated by the checkoutCuredPatient() method calls. You do not need to
         //      touch this curedPatientCount value, as it will be updated by the checkoutCuredPatient() method.
 
-        int count = 0;
+        int ptCount = 0;
         int drNum = 0;
         while ((this.patientList.size() != 0) && (drNum < this.doctorList.size())) {
             Patient pt = this.patientList.get(0);
@@ -114,8 +114,8 @@ public abstract class Department {
                 // and increment curedPatientCount
                 this.checkoutCuredPatient(pt);
             }
-            if ((++count) == 10) {
-                count = 0;
+            if ((++ptCount) == 10) {
+                ptCount = 0;
                 ++drNum;
             }
         }
