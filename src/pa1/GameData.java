@@ -42,7 +42,9 @@ public class GameData {
                 //    file
                 // 4. add the player to the players (ArrayList) using the add() method
                 // 5. read an empty line without doing anything
-
+                String[] playerInfo = in.readLine().split(" ");
+                players.add(new Player(playerInfo[0], playerInfo[1], Integer.parseInt(playerInfo[2])));
+                in.readLine();
             } //end of for loop
         }
     }

@@ -20,6 +20,9 @@ public class DeficitException extends Exception {
         //  3. record the deficit duration of the player in deficitTimeSpan of
         //     this exception object. You can use the getDeficitTimeSpan() method of the player
         //     to get this information
+        this.deficit = player.getMoney();
+        this.playerName = player.getName();
+        this.deficitTimeSpan = player.getDeficitTimeSpan();
     }
 
     /**
@@ -37,5 +40,7 @@ public class DeficitException extends Exception {
         //     "Player %s has been in deficit for %d turns, current deficit is %d, " +
         //                        "keeping in deficit status will lead to bankruptcy"
         //  you may find slide 22 of the note set https://course.cse.ust.hk/comp3021/notes/3-strings-full.pdf helpful
+        return String.format("Player %s has been in deficit for %d turns, current deficit is %d, keeping in deficit status will lead to bankruptcy",
+                this.playerName, this.deficitTimeSpan, this.deficit);
     }
 }
