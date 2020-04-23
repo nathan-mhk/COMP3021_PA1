@@ -125,9 +125,9 @@ public abstract class Doctor {
         //  cost = upgradeCost of the department * department's bed capacity * the upgradeDiscountRate by the doctor.
         //  2. Then, call player.spendMoney to let the player pay for the upgrade.
         //  3. Finally, call upgrade() method on the dept to finish the upgrade.
-        double cost = this.affiliation.getUpgradeCost() * this.affiliation.getBedCapacity() * this.getUpgradeDiscountRate();
+        double cost = dept.getUpgradeCost() * dept.getBedCapacity() * this.getUpgradeDiscountRate();
         player.spendMoney((int) cost);
-        this.affiliation.upgrade();
+        dept.upgrade();
     }
 
     /**
