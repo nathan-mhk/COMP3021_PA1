@@ -229,7 +229,7 @@ public class GameEngine {
                 if (dept != null) doctor.transferToDepartment(dept);
                 break;
             case 5:
-                doctor.raiseFund();
+                player.collectMoney(doctor.raiseFund());
                 break;
             default:
                 System.out.printf("\n player %s enter command %d", player.getName(), command);
