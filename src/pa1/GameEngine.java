@@ -71,6 +71,7 @@ public class GameEngine {
             }
             return this.gameData.getPlayers().get(playerIndex);
         } else {
+            // The following code assumes the number of player to be exactly 2
             Player firstPlayer = this.gameData.getPlayers().get(0);
             Player secondPlayer = this.gameData.getPlayers().get(1);
             boolean firstBR = firstPlayer.hasBankrupted();
